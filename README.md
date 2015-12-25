@@ -15,6 +15,11 @@ cd the/folder/that/you/just/git/cloned/;
 vagrant up;
 ```
 
+## Host folder mapped
+```Bash
+[host]:/shared/properta/  --> [guest]:/var/www 
+```
+
 ## to destroy the current box!!!!
 ```Bash
 vagrant destroy -f
