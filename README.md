@@ -14,3 +14,8 @@ git clone https://github.com/helin16/properta-dev-box.git;
 cd the/folder/that/you/just/git/cloned/;
 vagrant up;
 ```Bash
+
+## to destroy the current box!!!!
+```Bash
+vagrant destroy -f
+```Bash
