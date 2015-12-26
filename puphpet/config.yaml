@@ -10,12 +10,9 @@ vagrantfile:
         network:
             private_network: 192.168.56.101
             forwarded_port:
-                vflnp_34gc2d5oj95c:
-                    host: '2020'
+                vflnp_4hsefi2uz94u:
+                    host: '9753'
                     guest: '22'
-                vflnp_e86pkysnypci:
-                    host: '8080'
-                    guest: '80'
         post_up_message: ''
         provider:
             virtualbox:
@@ -34,7 +31,7 @@ vagrantfile:
                     - '--verbose'
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
         synced_folder:
-            vflsf_rvla67yna8t9:
+            vflsf_871isn4y8oh4:
                 source: /shared/properta
                 target: /var/www
                 sync_type: default
@@ -72,12 +69,7 @@ vagrantfile:
 server:
     install: '1'
     packages:
-        - mysqld
-        - ngnix
         - git
-        - php
-        - phpunit
-        - nodejs
 users_groups:
     install: '1'
     groups: {  }
@@ -92,7 +84,7 @@ locale:
 firewall:
     install: '1'
     rules:
-        fr_0x5koi6s2oku:
+        fr_w45o4ozc80v7:
             port:
                 - '80'
             priority: '100'
@@ -113,9 +105,11 @@ nginx:
         names_hash_bucket_size: 128
     upstreams: {  }
     vhosts:
-        nxv_9ib7pmo0b8wp:
-            server_name: properta.local
-            www_root: /var/www/properta
+        nxv_evkuc1xyzb14:
+            server_name: awesome.dev
+            server_aliases:
+                - www.awesome.dev
+            www_root: /var/www/properta/public
             listen_port: '80'
             index_files:
                 - index.html
@@ -131,7 +125,7 @@ nginx:
             rewrite_to_https: '1'
             spdy: '1'
             locations:
-                nxvl_cu51q6v221jw:
+                nxvl_d5gt8ftiszzj:
                     location: /
                     autoindex: 'off'
                     internal: 'false'
@@ -144,7 +138,7 @@ nginx:
                     fastcgi_split_path: ''
                     proxy: ''
                     proxy_redirect: ''
-                nxvl_ng3ht6tpzgok:
+                nxvl_wn00t8xwshp3:
                     location: '~ \.php$'
                     autoindex: 'off'
                     internal: 'false'
@@ -176,7 +170,7 @@ apache:
         - proxy_fcgi
         - rewrite
     vhosts:
-        av_3phwlmqcykyn:
+        av_i322mejrw8pm:
             servername: awesome.dev
             serveraliases:
                 - www.awesome.dev
@@ -195,7 +189,7 @@ apache:
             ssl_protocol: ''
             ssl_cipher: ''
             directories:
-                avd_fbypqtf1ig0j:
+                avd_p3bv1ee55u7v:
                     path: /var/www/awesome
                     options:
                         - Indexes
@@ -207,7 +201,7 @@ apache:
                         - 'all granted'
                     custom_fragment: ''
                     files_match:
-                        avdfm_vzr4j2manhjq:
+                        avdfm_tzydjvhp9h1x:
                             path: \.php$
                             sethandler: 'proxy:fcgi://127.0.0.1:9000'
                             custom_fragment: ''
@@ -228,10 +222,11 @@ php:
         error_reporting: '-1'
         session.save_path: /var/lib/php/session
         date.timezone: UTC
+        memory_limit: 512M
     fpm_ini:
         error_log: /var/log/php-fpm.log
     fpm_pools:
-        phpfp_pixmqr95q6tm:
+        phpfp_wa4puuk5utey:
             ini:
                 prefix: www
                 listen: '127.0.0.1:9000'
@@ -241,7 +236,7 @@ php:
     composer: '1'
     composer_home: ''
 xdebug:
-    install: '0'
+    install: '1'
     settings:
         xdebug.default_enable: '1'
         xdebug.remote_autostart: '0'
@@ -274,16 +269,14 @@ drush:
 ruby:
     install: '1'
     versions:
-        rv_jjstif4sa234:
-            default: '1'
-            bundler: '1'
+        rv_mmj0cysbys3t:
             version: 1.9.3
 python:
     install: '1'
     packages: {  }
     versions: {  }
 nodejs:
-    install: '0'
+    install: '1'
     settings:
         version: '5'
     npm_packages: {  }
@@ -310,15 +303,15 @@ mariadb:
         override_options: {  }
     adminer: 0
     users:
-        mariadbnu_qc4gh2yn6i5z:
+        mariadbnu_sdk3zg177kh0:
             name: dbuser
             password: '123'
     databases:
-        mariadbnd_e51eyad0btvi:
+        mariadbnd_y12w8vw232wj:
             name: dbname
             sql: ''
     grants:
-        mariadbng_qiuc76yt0c1o:
+        mariadbng_lktdkfc6fibm:
             user: dbuser
             table: '*.*'
             privileges:
@@ -327,15 +320,12 @@ mysql:
     install: '1'
     settings:
         version: '5.5'
-        root_password: 'root'
+        root_password: root
         override_options: {  }
     adminer: 0
-    users:
-        mysqlnu_tkbswllj37t2:
-            name: vagrant
-            password: vagrant
+    users: {  }
     databases:
-        mysqlnd_jsrkw2mrk0yj:
+        mysqlnd_3bforfp7fpp3:
             name: properta
             sql: ''
     grants: {  }
