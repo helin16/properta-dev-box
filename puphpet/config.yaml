@@ -11,7 +11,7 @@ vagrantfile:
             private_network: 192.168.56.101
             forwarded_port:
                 vflnp_34gc2d5oj95c:
-                    host: '2222'
+                    host: '2020'
                     guest: '22'
                 vflnp_e86pkysnypci:
                     host: '8080'
@@ -74,6 +74,7 @@ server:
     packages:
         - mysqld
         - phpunit
+	- nodejs
 users_groups:
     install: '1'
     groups: {  }
