@@ -323,13 +323,13 @@ mysql:
     install: '1'
     settings:
         version: '5.5'
-        root_password: '123'
+        root_password: 'root'
         override_options: {  }
     adminer: 0
     users:
         mysqlnu_tkbswllj37t2:
-            name: root
-            password: root
+            name: vagrant
+            password: vagrant
     databases:
         mysqlnd_jsrkw2mrk0yj:
             name: properta
