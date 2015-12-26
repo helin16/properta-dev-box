@@ -73,6 +73,9 @@ server:
     install: '1'
     packages:
         - mysqld
+        - ngnix
+        - git
+        - php
         - phpunit
         - nodejs
 users_groups:
